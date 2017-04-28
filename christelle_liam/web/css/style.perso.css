@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+*, a{
+    font-family: 'Amatic SC', cursive;
+    color: white;
+}
+body{
+    background-color: #222222;
+    font-size: 2.2rem;
+}
+#conteneur_body{
+    display: flex;
+}
+
+.titre_section h1{
+    font-size: 1.7em;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: solid white 2px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(51, 122, 183);
+    padding: 5px;
+}
+
+#nav_small{
+    display: none;
+}
+
+#nav_small button{
+    background-color: #222222;
+    color: white;
+    font-size: 1.2em;
+}
+
+#nav_small li{
+    font-size: 1.3em;
+}
+
+#nav_small button:hover{
+    color: white;
+}
+
+nav .dropdown{
+    display: inline-block;
+    width: 32%;
+}
+
+nav {
+    background-color: #222222;
+}
+
+#titre_nav{
+    margin-bottom: 5vh;
+}
+
+#titre_nav a{
+    color: #777;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#titre_nav a:hover{
+    color: #5E5E5E;
+    text-decoration: none;
+}
+
+nav h4{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+nav li{
+    list-style-type: none;
+    font-size: 0.9em;
+}
+
+nav li a:hover{
+    text-decoration: none;
+}
+
+hr{
+    border: none;
+    border-bottom: solid #337ab7 1px;
+}
+
+/*
+#####INDEX#####
+ */
+
+#titre_index{
+    margin-top: 25vh;
+    font-size: 3em;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.description_index{
+    width: 65vw;
+    margin: auto;
+    font-size: 1.3em;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+#texte_index{
+    width: 100%;
+    background-color: rgba(94, 94, 94, 0.5);
+}
+
+section{
+    margin:0 !important;
+    padding:0 !important;
+    background-color: #5E5E5E;
+    background: url('../img/fond_nuage.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.section_index{
+    background: url('../img/glacier.jpg') no-repeat center;
+}
+@media all and (max-width: 992px) {
+    #conteneur_body{
+        display: block;
+    }
+
+    #nav_small{
+        display: block;
+    }
+
+    #nav_large{
+        display: none;
+    }
+
+    #titre_index{
+        margin-top: 5px;
+    }
+}
+
+/*
+#####A PROPOS#####
+ */
+.sections{
+    padding: 0 10%;
+}
+
+.sections h2, .sections p, .sections li, .sections label, .sections div, .sections option, .sections strong{
+    color: black;
+}
+
+.sections button{
+    font-size: 1em;
+}
+
+.titre_section{
+    background: url('../img/banniere_glacier.jpg') no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid white 2px;
+    margin-bottom: 4vh;
+}
+
+.titre_section h1{
+    margin-top: 0;
+    font-weight: 600;
+}
+
+/*
+#####COVOITURAGE#####
+ */
+#section_covoiturage h3{
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+#nouveau_covoiturage input{
+    font-size: 1em;
+}
+
+#trajets_en_cours h2, #demandes_covoiturages h2, #place_voiture{
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+#trajets_en_cours li, #demandes_covoiturages li{
+    margin: 10px 0;
+    border: solid black 2px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px black;
+    padding: 5px;
+}
+
+#trajets_en_cours form{
+    display: inline-block;
+    color: black;
+}
+
+#lien_trajets_retours{
+    margin-top: 20px;
+    color: black;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+#place_voiture{
+    margin-top: 8px !important;
+}
+
+.message_erreur p, .message_erreur strong{
+    color: red !important;
+}
+
+.message_succes p, .message_succes strong{
+    color: green !important;
+}
+
+.bouton_ajout{
+    margin-bottom: 15px;
+}

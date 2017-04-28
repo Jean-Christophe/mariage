@@ -1,0 +1,121 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ parent() }}
+    <section class="col-md-10 col-sm-12">
+        <div class="titre_section">
+            <h1 class="text-center">Covoiturage / Lift sharing</h1>
+        </div>
+        <div id="section_covoiturage" class="sections">
+            {% if message_ajout is defined %}
+                {{ message_ajout|raw }}
+            {% endif %}
+            {% if message_demande is defined %}
+                {{ message_demande|raw }}
+            {% endif %}
+            <div id="nouveau_covoiturage" class="text-right">
+                {% if formulaire_ajout is defined and formulaire_ajout == true %}
+                    {% include "MariageBundle:Default:includes/form-ajout-covoiturage.html.twig" %}
+                {% elseif formulaire_demande is defined and formulaire_demande == true %}
+                    {% include "MariageBundle:Default:includes/form-demande-covoiturage.html.twig" %}
+                {% elseif formulaire_candidat is defined and formulaire_candidat == true %}
+                    {% include "MariageBundle:Default:includes/form-candidat-covoiturage.html.twig" %}
+                {% else %}
+                    <div class="row">
+                        <div class="col-md-6 row text-left">
+                            <h2 id="place_voiture" class="col-sm-9">J'ai de la place dans ma voiture : </h2><a class="col-sm-3" href="{{ path('mariage_lift_sharing_add') }}"><button class="bouton_ajout btn btn-primary">Proposer un covoiturage</button></a>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                <hr />
+            </div>
+            <div class="row">
+                <div id="trajets_en_cours" class="col-md-6">
+                    <h2>Trouver une place dans une voiture</h2>
+                    <p>Rien ne vous convient?
+                        <a href="{{ path('mariage_lift_sharing_ask') }}" ><button class="btn btn-xs btn-primary">Demander un covoiturage</button></a>
+                    </p>
+                    {% if trajets_proposes is defined and trajets_proposes is not null %}
+                        <div class="row">
+                            <h3 class="col-sm-4">Trajets allers</h3><a class="col-sm-offset-2 col-sm-6" id="lien_trajets_retours" href="#trajets_retours">Voir les trajets retours</a>
+                        </div>
+                        <div id="trajets_allers">
+                            <ul class="list-unstyled">
+                        {% for trajet in trajets_proposes %}
+                                {% if trajet.voiture is not null and trajet.estAller == true %}
+                                    <li>- Trajet <strong>depuis</strong> {{ trajet.villeOrigine }}<br />
+                                        Départ : {{ trajet.dateDepart }}<br />
+                                        Reste {{ trajet.voiture.nbPlaces }} place(s)<br />
+                                        {{ trajet.voiture.nom }}<br />
+                                        Demander
+                                        <form method="post" action="{{ path('mariage_lift_sharing_candidate') }}">
+                                            <input type="hidden" name="id_trajet" value="{{ trajet.id }}" />
+                                            <select name="placesDemandees">
+                                                {% for i in 0..trajet.voiture.nbPlaces %}
+                                                    <option>{{ i }}</option>
+                                                {% endfor %}
+                                            </select>
+                                            place(s) <button type="submit" class="btn btn-success" name="demander_covoit">Valider</button>
+                                        </form>
+                                    </li>
+                                {% endif %}
+                        {% endfor %}
+                            </ul>
+                        </div>
+                        <p>Rien ne vous convient?
+                            <a href="{{ path('mariage_lift_sharing_ask') }}" ><button class="btn btn-xs btn-primary">Demander un covoiturage</button></a>
+                        </p>
+                        <h3 id="trajets_retours">Trajets retours</h3>
+                        {% for trajet in trajets_proposes %}
+                            <div>
+                                {% if trajet.voiture is not null and trajet.estAller == false %}
+                                <ul class="list-unstyled">
+                                    <li>- Trajet <strong>vers</strong> {{ trajet.villeOrigine }}<br />
+                                        Départ : {{ trajet.dateDepart }}<br />
+                                        Reste {{ trajet.voiture.nbPlaces }} place(s)<br />
+                                        {{ trajet.voiture.nom }}<br />
+                                        Demander
+                                        <select>
+                                            {% for i in 0..trajet.voiture.nbPlaces %}
+                                            <option>{{ i }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        place(s) <button class="btn btn-success">Valider</button></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        {% endfor %}
+                        <p>Rien ne vous convient?
+                            <a href="{{ path('mariage_lift_sharing_ask') }}" ><button class="btn btn-xs btn-primary">Demander un covoiturage</button></a>
+                        </p>
+                    {% else %}
+                        <p>Aucune proposition de covoiturage.</p>
+                    {% endif %}
+                </div>
+                <div id="demandes_covoiturages" class="col-md-offset-2 col-md-4">
+                    <h2>Demandes de covoiturage</h2>
+                    {% if trajets_demandes is defined and trajets_demandes is not null %}
+                        <ul class="list-unstyled">
+                            {% for trajet_demande in trajets_demandes %}
+                                {% if trajet_demande.passager is not null and trajet_demande.estAller == true %}
+                                    <li>Cherche {{ trajet_demande.passager.nbPlaces }} place(s) pour le trajet aller.<br />
+                                        Lieu d'origine : {{ trajet_demande.villeOrigine }}<br />
+                                        Date souhaitée : {{ trajet_demande.dateDepart }}<br />
+                                        ({{ trajet_demande.passager.nom }})</li>
+                                {% elseif trajet_demande.passager is not null and trajet_demande.estAller == false %}
+                                    <li>Cherche {{ trajet_demande.passager.nbPlaces }} place(s) pour le trajet retour.<br />
+                                        Lieu d'origine : {{ trajet_demande.villeOrigine }}<br />
+                                        Date souhaitée : {{ trajet_demande.dateDepart }}<br />
+                                        ({{ trajet_demande.passager.nom }})</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Aucune demande de covoiturage actuellement.</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+
+    <nav id="nav_large" class="col-md-2">
+        <h3 id="titre_nav" class="text-center"><a href="{{ path('mariage_homepage') }}">Christelle & Liam</a></h3>
+
+        <h4>Le mariage</h4>
+        <ul>
+            <li><a href="{{ path('mariage_homepage') }}">Accueil</a></li>
+            <li><a href="{{ path('mariage_about') }}">A propos</a></li>
+            <li><a href="{{ path('mariage_ceremony') }}">La cérémonie</a></li>
+            <li><a href="{{ path('mariage_reception') }}">La réception</a></li>
+            <li><a href="{{ path('mariage_timetable') }}">Le déroulement</a></li>
+        </ul>
+
+        <h4>Invités</h4>
+        <ul>
+            <li><a href="{{ path('mariage_rsvp') }}">RSVP</a></li>
+            <li><a href="{{ path('mariage_gift_list') }}">Liste de mariage</a></li>
+            <li><a href="{{ path('mariage_where_to_stay') }}">Hébergement</a></li>
+            <li><a href="{{ path('mariage_travel') }}">Logistique</a></li>
+            <li><a href="{{ path('mariage_lift_sharing') }}">Covoiturage</a></li>
+            <li><a href="{{ path('mariage_contact') }}">Contactez-nous</a></li>
+        </ul>
+
+        <h4>Mémoires</h4>
+        <ul>
+            <li><a href="{{ path('mariage_photos') }}">Album photos</a></li>
+            <li><a href="{{ path('mariage_guestbook') }}">Livre d'or</a></li>
+        </ul>
+    </nav>
+
+<nav id="nav_small">
+    <div class="dropdown text-center">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Le mariage<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('mariage_homepage') }}">Accueil</a></li>
+            <li><a href="{{ path('mariage_about') }}">A propos</a></li>
+            <li><a href="{{ path('mariage_ceremony') }}">La cérémonie</a></li>
+            <li><a href="{{ path('mariage_reception') }}">La réception</a></li>
+            <li><a href="{{ path('mariage_timetable') }}">Le déroulement</a></li>
+        </ul>
+    </div>
+    <div class="dropdown text-center">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Invités<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('mariage_rsvp') }}">RSVP</a></li>
+            <li><a href="{{ path('mariage_gift_list') }}">Liste de mariage</a></li>
+            <li><a href="{{ path('mariage_where_to_stay') }}">Hébergement</a></li>
+            <li><a href="{{ path('mariage_travel') }}">Logistique</a></li>
+            <li><a href="{{ path('mariage_lift_sharing') }}">Covoiturage</a></li>
+            <li><a href="{{ path('mariage_contact') }}">Contactez-nous</a></li>
+        </ul>
+    </div>
+    <div class="dropdown text-center">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Mémoires<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('mariage_photos') }}">Album photos</a></li>
+            <li><a href="{{ path('mariage_guestbook') }}">Livre d'or</a></li>
+        </ul>
+    </div>
+</nav>

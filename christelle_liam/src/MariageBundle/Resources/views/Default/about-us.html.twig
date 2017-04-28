@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block body %}
+{{ parent() }}
+<section class="col-md-10 col-sm-12">
+    <div class="titre_section">
+        <h1 class="text-center">A propos / About us</h1>
+    </div>
+    <div id="section_about" class="sections">
+        <div class="row">
+            <div id="profil_christelle" class="col-md-6">
+                <img src="#" alt="Photo de Christelle" class="img-responsive text-center" />
+                <h2 class="text-center">CHRISTELLE</h2>
+                <p class="text-justify">
+                    Profil de Christelle
+                </p>
+            </div>
+            <div id="profil_liam" class="col-md-6">
+                <img src="#" alt="Photo de Liam" class="img-responsive text-center" />
+                <h2 class="text-center">LIAM</h2>
+                <p class="text-justify">
+                    Profil de Liam
+                </p>
+            </div>
+        </div>
+        <div id="profil_2">
+            <img src="#" alt="Photo de Christelle et Liam" class="img-responsive text-center" />
+            <h2 class="text-center">COMMENT NOUS NOUS SOMMES RENCONTRES...<br />
+            HOW WE MET...</h2>
+            <p class="text-justify">
+                Texte
+            </p>
+            <h2 class="text-center">LES FIANCAILLES...<br />
+                THE PROPOSAL...</h2>
+            <p class="text-justify">
+                Texte
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

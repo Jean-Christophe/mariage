@@ -1,0 +1,127 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: jeanc_000
+ * Date: 15/04/2017
+ * Time: 22:55
+ */
+
+namespace MariageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Trajet
+ * @package MariageBundle\Entity
+ * @ORM\Entity(repositoryClass="MariageBundle\Repository\TrajetRepository")
+ * @ORM\Table(name="trajets")
+ */
+class Trajet
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $nbPlaces;
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $estAller;
+    /**
+     * @ORM\ManyToOne(targetEntity="Voiture")
+     */
+    private $voiture;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbPlaces()
+    {
+        return $this->nbPlaces;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEstAller()
+    {
+        return $this->estAller;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVoiture()
+    {
+        return $this->voiture;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $nbPlaces
+     */
+    public function setNbPlaces($nbPlaces)
+    {
+        $this->nbPlaces = $nbPlaces;
+    }
+
+    /**
+     * @param mixed $estAller
+     */
+    public function setEstAller($estAller)
+    {
+        $this->estAller = $estAller;
+    }
+
+    /**
+     * @param mixed $voiture
+     */
+    public function setVoiture($voiture)
+    {
+        $this->voiture = $voiture;
+    }
+
+    /**
+     * Trajet constructor.
+     * @param $id
+     * @param $nbPlacesRestantes
+     * @param $estAller
+     * @param $Voiture
+     */
+
+    public function __construct($id, $nbPlaces, $estAller, $voiture)
+    {
+        $this->setId($id);
+        $this->setNbPlaces($nbPlaces);
+        $this->setEstAller($estAller);
+        $this->setVoiture($voiture);
+    }
+
+    function __toString()
+    {
+        return 'id= ' . $this->getId() . ', nbPlaces= ' . $this->getNbPlaces() . ', estAller= ' . $this->getEstAller() .
+            ', voiture= ' . $this->getVoiture();
+    }
+
+
+}

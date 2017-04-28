@@ -1,0 +1,63 @@
+mariage_homepage:
+    path:     /
+    defaults: { _controller: MariageBundle:Default:index }
+
+mariage_about:
+    path:     /about
+    defaults: { _controller: MariageBundle:About:index}
+
+mariage_ceremony:
+    path:     /ceremony
+    defaults: { _controller: MariageBundle:Ceremony:index}
+
+mariage_reception:
+    path:     /reception
+    defaults: { _controller: MariageBundle:Reception:index}
+
+mariage_timetable:
+    path:     /timetable
+    defaults: { _controller: MariageBundle:Timetable:index}
+
+mariage_rsvp:
+    path:     /rsvp
+    defaults: { _controller: MariageBundle:Rsvp:index}
+
+mariage_gift_list:
+    path:     /gift-list
+    defaults: { _controller: MariageBundle:GiftList:index}
+
+mariage_where_to_stay:
+    path:     /where-to-stay
+    defaults: { _controller: MariageBundle:WhereToStay:index}
+
+mariage_travel:
+    path:     /travel
+    defaults: { _controller: MariageBundle:Travel:index}
+
+mariage_lift_sharing:
+    path:     /lift-sharing
+    defaults: { _controller: MariageBundle:LiftSharing:index}
+
+mariage_lift_sharing_add:
+    path:     /lift-sharing/add
+    defaults: { _controller: MariageBundle:LiftSharing:add}
+
+mariage_lift_sharing_ask:
+    path:     /lift-sharing/ask
+    defaults: { _controller: MariageBundle:LiftSharing:ask}
+
+mariage_lift_sharing_candidate:
+    path:     /lift-sharing/candidate
+    defaults: { _controller: MariageBundle:LiftSharing:candidate}
+
+mariage_contact:
+    path:     /contact-us
+    defaults: { _controller: MariageBundle:Contact:index}
+
+mariage_photos:
+    path:     /photos
+    defaults: { _controller: MariageBundle:Photos:index}
+
+mariage_guestbook:
+    path:     /guestbook
+    defaults: { _controller: MariageBundle:GuestBook:index}
